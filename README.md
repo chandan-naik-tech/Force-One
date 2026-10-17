@@ -52,3 +52,6 @@ To use a better model, export a `.glb` and upload it in Admin → Settings → "
 ## The car drawing
 The hero and the Dimensions section use `frontend/public/car-blueprint.webp` (transparent line art) and `frontend/public/car-fill.webp` (its body silhouette, used for the light-blue tint). The Force emblem on the grille is your uploaded logo, drawn over the artwork.
 To use a **photo or video** in the hero instead, set it in Admin → Hero; it replaces the drawing.
+
+## Start with Python
+`python main.py` does the same as `node start.js` (flags such as `--no-open` and `--prod` are passed through). Node.js 20+ is still required, because the site runs on Node.
