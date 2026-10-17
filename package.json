@@ -1,0 +1,2 @@
+{"name":"force-one","private":true,"type":"module","engines":{"node":">=20"},
+"scripts":{"start":"node start.js","start:prod":"node start.js --prod","build":"npm --prefix frontend install && npm --prefix frontend run build && npm --prefix backend install","serve":"node backend/src/index.js"}}

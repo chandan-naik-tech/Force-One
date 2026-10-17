@@ -1,0 +1,11 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+body{@apply bg-white text-navy font-sans antialiased}
+h1,h2,h3{@apply font-display tracking-tight}
+:focus-visible{outline:2px solid #2F82E0;outline-offset:3px;border-radius:4px}
+.blueprint{background-image:linear-gradient(#2f82e012 1px,transparent 1px),linear-gradient(90deg,#2f82e012 1px,transparent 1px);background-size:48px 48px}
+.glass{@apply bg-white/70 backdrop-blur-xl border border-white/60 shadow-[0_8px_32px_rgba(10,35,66,.08)]}
+.btn{@apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold tracking-wide transition active:scale-[.98]}
+.btn-primary{@apply btn bg-navy text-white hover:bg-sky-500}
+.btn-ghost{@apply btn border border-navy/20 bg-white/60 text-navy hover:border-sky-500 hover:text-sky-500}
+.input{@apply w-full rounded-lg border border-sky-200 bg-white px-3 py-2 text-sm text-navy placeholder:text-navy/40 focus:border-sky-500}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
