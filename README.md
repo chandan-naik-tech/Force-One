@@ -58,3 +58,10 @@ To use a **photo or video** in the hero instead, set it in Admin → Hero; it re
 
 ## Starting with Python
 If you prefer Python, `python main.py` does the same as `node start.js` (it checks Node 20+ is installed, then runs `start.js`). It accepts the same flags: `--no-open` and `--prod`.
+
+## Deploying
+The site has two parts, and **Vercel can only host the frontend**. The backend keeps a SQLite file and uploaded images on disk, which Vercel's serverless functions cannot do.
+
+1. **Backend** → a host with a persistent disk (Render, Railway or Fly.io). Root directory `backend`, build `npm install`, start `npm start`. Mount the disk and point `DATABASE_PATH` and uploads at it. Set `JWT_SECRET`, `ADMIN_EMAIL`, `ADMIN_PASSWORD` and `NODE_ENV=production`. (Or set the `S3_*` variables to keep uploads in a bucket.)
+2. **Frontend** → Vercel. Import the repo and set **Root Directory to `frontend`** (this is what stops Vercel from seeing `main.py` and failing with `PYTHON_ENTRYPOINT_NOT_FOUND`). Framework preset: Vite. Build `npm run build`, output `dist`.
+3. Open `frontend/vercel.json` and replace `YOUR-BACKEND-URL` with your backend's address, then redeploy. The rewrites keep `/api` and `/uploads` on the same domain, so the admin login cookie works.
