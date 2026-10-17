@@ -10,4 +10,4 @@ export function SiteProvider({children}){const[s,set]=useState(null);const[admin
   return s?<C.Provider value={s}><AdminCtx.Provider value={admin}>{children}</AdminCtx.Provider></C.Provider>:<div className="min-h-screen bg-white"/>}
 export function useData(path){const[d,setD]=useState(null);const[error,setError]=useState(null);
   useEffect(()=>{let on=true;setD(null);setError(null);api.get(path).then(x=>on&&setD(x)).catch(e=>on&&setError(e.message));return()=>{on=false}},[path]);
-  return{data:d,error,loading:!d&&!error}}
+  return{data:d||(error?[]:null),error,loading:!d&&!error}}
