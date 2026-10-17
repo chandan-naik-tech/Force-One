@@ -55,3 +55,6 @@ To use a **photo or video** in the hero instead, set it in Admin → Hero; it re
 
 ## Start with Python
 `python main.py` does the same as `node start.js` (flags such as `--no-open` and `--prod` are passed through). Node.js 20+ is still required, because the site runs on Node.
+
+## Starting with Python
+If you prefer Python, `python main.py` does the same as `node start.js` (it checks Node 20+ is installed, then runs `start.js`). It accepts the same flags: `--no-open` and `--prod`.
