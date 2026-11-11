@@ -27,8 +27,7 @@ Admin: `/admin` — email and password are `ADMIN_EMAIL` / `ADMIN_PASSWORD` in `
 - `frontend/.env` — `VITE_API_TARGET`, where the dev server forwards `/api` and `/uploads`.
 
 ## Storage
-With `S3_BUCKET` empty, uploads go to `backend/uploads` (development only). For a real deployment set the `S3_*` values
-(Cloudflare R2, AWS S3, Backblaze B2, Supabase) so media lives outside your app and survives every redeploy.
+All images and videos are located in `frontend/public/uploads/` so they are bundled with the frontend build and visible when hosting the website (whether hosted as a static site or served by Node). With `S3_BUCKET` empty, local uploads go directly to `frontend/public/uploads`. For cloud storage, set the `S3_*` values (Cloudflare R2, AWS S3, Backblaze B2, Supabase) so media lives outside your app and survives every redeploy.
 Videos upload straight from the browser to the bucket, so add a CORS rule: origins = your site, methods = `PUT`, headers = `*`.
 
 ## Deploy
@@ -52,16 +51,3 @@ To use a better model, export a `.glb` and upload it in Admin → Settings → "
 ## The car drawing
 The hero and the Dimensions section use `frontend/public/car-blueprint.webp` (transparent line art) and `frontend/public/car-fill.webp` (its body silhouette, used for the light-blue tint). The Force emblem on the grille is your uploaded logo, drawn over the artwork.
 To use a **photo or video** in the hero instead, set it in Admin → Hero; it replaces the drawing.
-
-## Start with Python
-`python main.py` does the same as `node start.js` (flags such as `--no-open` and `--prod` are passed through). Node.js 20+ is still required, because the site runs on Node.
-
-## Starting with Python
-If you prefer Python, `python main.py` does the same as `node start.js` (it checks Node 20+ is installed, then runs `start.js`). It accepts the same flags: `--no-open` and `--prod`.
-
-## Deploying
-The site has two parts, and **Vercel can only host the frontend**. The backend keeps a SQLite file and uploaded images on disk, which Vercel's serverless functions cannot do.
-
-1. **Backend** → a host with a persistent disk (Render, Railway or Fly.io). Root directory `backend`, build `npm install`, start `npm start`. Mount the disk and point `DATABASE_PATH` and uploads at it. Set `JWT_SECRET`, `ADMIN_EMAIL`, `ADMIN_PASSWORD` and `NODE_ENV=production`. (Or set the `S3_*` variables to keep uploads in a bucket.)
-2. **Frontend** → Vercel. Import the repo and set **Root Directory to `frontend`** (this is what stops Vercel from seeing `main.py` and failing with `PYTHON_ENTRYPOINT_NOT_FOUND`). Framework preset: Vite. Build `npm run build`, output `dist`.
-3. Open `frontend/vercel.json` and replace `YOUR-BACKEND-URL` with your backend's address, then redeploy. The rewrites keep `/api` and `/uploads` on the same domain, so the admin login cookie works.

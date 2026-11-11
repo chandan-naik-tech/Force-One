@@ -49,7 +49,7 @@ ${green('✔')} ${bold('Force One is running')}
   API       http://localhost:${PORT}/api/health
 
   Database  ${green('connected')}  ${dim(`SQLite · backend/${(env.DATABASE_PATH||'./data/forceone.db').replace(/^\.\//,'')}`)}
-  Storage   ${cloud?green('cloud bucket'):'local disk'}  ${dim(cloud?env.S3_BUCKET:'backend/uploads — fine for development; set S3_* in backend/.env before deploying')}
+  Storage   ${cloud?green('cloud bucket'):'frontend/public/uploads'}  ${dim(cloud?env.S3_BUCKET:'served directly by frontend and backend')}
 
   ${dim('Press Ctrl+C to stop everything.')}
 `);

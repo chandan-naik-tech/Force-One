@@ -28,11 +28,37 @@ const features=[
  F(13,'SAFETY','Shield','Parking sensors & keyless entry','Rear parking sensors in the bumper, plus remote keyless entry on higher trims.'),
  F(14,'SAFETY','Zap','Smart instrument warnings','Brake-pad wear indicator, driver seatbelt reminder and over-speed warnings.'),
  F(15,'UTILITY','Luggage','Three rows, real ground clearance','Seats up to seven, with 205 mm of ground clearance and a 3,025 mm wheelbase.')];
+
+const initialMedia = [
+  {id:'8210aab3-d748-4cf1-adc3-f1e317a5d6da',kind:'image',source:'upload',category:'OTHERS',title:'images (2)',description:'',url:'/uploads/images/8210aab3-d748-4cf1-adc3-f1e317a5d6da.webp',thumb_url:'/uploads/images/8210aab3-d748-4cf1-adc3-f1e317a5d6da-thumb.webp',key:'images/8210aab3-d748-4cf1-adc3-f1e317a5d6da.webp',thumb_key:'images/8210aab3-d748-4cf1-adc3-f1e317a5d6da-thumb.webp',featured:0,sort_order:0,width:678,height:452},
+  {id:'a00b2cf5-2631-4626-a8c0-a33a2a0c76f8',kind:'image',source:'upload',category:'OTHERS',title:'images',description:'',url:'/uploads/images/a00b2cf5-2631-4626-a8c0-a33a2a0c76f8.webp',thumb_url:'/uploads/images/a00b2cf5-2631-4626-a8c0-a33a2a0c76f8-thumb.webp',key:'images/a00b2cf5-2631-4626-a8c0-a33a2a0c76f8.webp',thumb_key:'images/a00b2cf5-2631-4626-a8c0-a33a2a0c76f8-thumb.webp',featured:0,sort_order:1,width:739,height:415},
+  {id:'8b7d2fc8-380b-4e42-8f9b-1a78fb218449',kind:'image',source:'upload',category:'OTHERS',title:'images (3)',description:'',url:'/uploads/images/8b7d2fc8-380b-4e42-8f9b-1a78fb218449.webp',thumb_url:'/uploads/images/8b7d2fc8-380b-4e42-8f9b-1a78fb218449-thumb.webp',key:'images/8b7d2fc8-380b-4e42-8f9b-1a78fb218449.webp',thumb_key:'images/8b7d2fc8-380b-4e42-8f9b-1a78fb218449-thumb.webp',featured:0,sort_order:2,width:723,height:423},
+  {id:'1365e94e-ba5d-4177-915d-ef0254cc6d43',kind:'image',source:'upload',category:'OTHERS',title:'images (1)',description:'',url:'/uploads/images/1365e94e-ba5d-4177-915d-ef0254cc6d43.webp',thumb_url:'/uploads/images/1365e94e-ba5d-4177-915d-ef0254cc6d43-thumb.webp',key:'images/1365e94e-ba5d-4177-915d-ef0254cc6d43.webp',thumb_key:'images/1365e94e-ba5d-4177-915d-ef0254cc6d43-thumb.webp',featured:0,sort_order:3,width:490,height:326},
+  {id:'3d5e12bf-fde6-481d-8d61-7c0425ff928a',kind:'image',source:'upload',category:'OTHERS',title:'7392',description:'',url:'/uploads/images/3d5e12bf-fde6-481d-8d61-7c0425ff928a.webp',thumb_url:'/uploads/images/3d5e12bf-fde6-481d-8d61-7c0425ff928a-thumb.webp',key:'images/3d5e12bf-fde6-481d-8d61-7c0425ff928a.webp',thumb_key:'images/3d5e12bf-fde6-481d-8d61-7c0425ff928a-thumb.webp',featured:0,sort_order:4,width:600,height:338},
+  {id:'46fc39a5-cb32-4c08-b46e-46e614da8f4e',kind:'image',source:'upload',category:'OTHERS',title:'images (4)',description:'',url:'/uploads/images/46fc39a5-cb32-4c08-b46e-46e614da8f4e.webp',thumb_url:'/uploads/images/46fc39a5-cb32-4c08-b46e-46e614da8f4e-thumb.webp',key:'images/46fc39a5-cb32-4c08-b46e-46e614da8f4e.webp',thumb_key:'images/46fc39a5-cb32-4c08-b46e-46e614da8f4e-thumb.webp',featured:0,sort_order:5,width:630,height:369},
+  {id:'fa055a03-fde6-4cac-9987-8e5156297f6b',kind:'image',source:'upload',category:'OTHERS',title:'7391',description:'',url:'/uploads/images/fa055a03-fde6-4cac-9987-8e5156297f6b.webp',thumb_url:'/uploads/images/fa055a03-fde6-4cac-9987-8e5156297f6b-thumb.webp',key:'images/fa055a03-fde6-4cac-9987-8e5156297f6b.webp',thumb_key:'images/fa055a03-fde6-4cac-9987-8e5156297f6b-thumb.webp',featured:0,sort_order:6,width:370,height:208},
+  {id:'f7fe23cb-f309-4470-9e14-7af896e96b7b',kind:'image',source:'upload',category:'OTHERS',title:'front-left-side-47',description:'',url:'/uploads/images/f7fe23cb-f309-4470-9e14-7af896e96b7b.webp',thumb_url:'/uploads/images/f7fe23cb-f309-4470-9e14-7af896e96b7b-thumb.webp',key:'images/f7fe23cb-f309-4470-9e14-7af896e96b7b.webp',thumb_key:'images/f7fe23cb-f309-4470-9e14-7af896e96b7b-thumb.webp',featured:0,sort_order:7,width:930,height:620},
+  {id:'5cb7faa6-382c-4446-bc39-0d46ea5e8e14',kind:'video',source:'upload',category:'OTHERS',title:'FORCE ONE 4',description:'',url:'/uploads/videos/0790ff9d-2a10-4f41-b31c-284543c9229c.mp4',thumb_url:null,key:'videos/0790ff9d-2a10-4f41-b31c-284543c9229c.mp4',thumb_key:null,featured:0,sort_order:-1},
+  {id:'36e396a5-7038-4c43-86fd-e8858d849aaf',kind:'video',source:'upload',category:'OTHERS',title:'FORCE ONE 2',description:'',url:'/uploads/videos/5ff41187-27ab-44cc-b1d7-377505ba3e0c.mp4',thumb_url:null,key:'videos/5ff41187-27ab-44cc-b1d7-377505ba3e0c.mp4',thumb_key:null,featured:0,sort_order:-2},
+  {id:'ef152d6f-c5ae-4a15-abe9-9b35da8a496e',kind:'video',source:'upload',category:'OTHERS',title:'FORCE ONE 3',description:'',url:'/uploads/videos/301cbefc-0c46-417f-8ddf-1409715b68a1.mp4',thumb_url:null,key:'videos/301cbefc-0c46-417f-8ddf-1409715b68a1.mp4',thumb_key:null,featured:0,sort_order:-3},
+  {id:'2e511b8c-9404-4f3f-9922-c2d75b3113a7',kind:'video',source:'upload',category:'OTHERS',title:'FORCE 5',description:'',url:'/uploads/videos/d25807fd-36e3-4f5a-95bd-3442e39b2a3f.mp4',thumb_url:null,key:'videos/d25807fd-36e3-4f5a-95bd-3442e39b2a3f.mp4',thumb_key:null,featured:0,sort_order:-4},
+  {id:'732d4dfe-4d88-47cf-871e-336787165b97',kind:'video',source:'upload',category:'OTHERS',title:'FORCE 6',description:'',url:'/uploads/videos/a02f191a-7725-4c90-b56d-b08b8ac59385.mp4',thumb_url:null,key:'videos/a02f191a-7725-4c90-b56d-b08b8ac59385.mp4',thumb_key:null,featured:0,sort_order:-5}
+];
+
 export function seedIfEmpty(){
   if(!get("select 1 from meta where key='hero_title_v2'")){ // v2: the hero headline is now just "FORCE ONE"
     const h=get("select value from settings where key='hero'");if(h){const o=JSON.parse(h.value);if(!o.title||/^my force one$/i.test(o.title.trim())){o.title='FORCE ONE';run("update settings set value=? where key='hero'",JSON.stringify(o))}}
     const st=get("select value from settings where key='site'");if(st){const o=JSON.parse(st.value);if(/^my force one$/i.test((o.title||'').trim())){o.title='Force One';run("update settings set value=? where key='site'",JSON.stringify(o))}}
     run("insert into meta(key,value) values('hero_title_v2','1')")}
+  if(!get("select 1 from meta where key='media_seeded_v1'")){
+    tx(()=>{
+      for(const m of initialMedia){
+        run('insert or ignore into media(id,kind,source,category,title,description,url,thumb_url,key,thumb_key,featured,sort_order,width,height) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
+          m.id,m.kind,m.source,m.category,m.title,m.description,m.url,m.thumb_url,m.key,m.thumb_key,m.featured,m.sort_order,m.width||null,m.height||null);
+      }
+      run("insert into meta(key,value) values('media_seeded_v1','1')");
+    });
+  }
   if(get("select 1 from meta where key='seeded'"))return;
   tx(()=>{const set=(k,v)=>run('insert or ignore into settings(key,value) values(?,?)',k,JSON.stringify(v));
     set('vehicle',vehicle);set('hero',{title:'FORCE ONE',subtitle:'Built for the journey.',overlay:45});
